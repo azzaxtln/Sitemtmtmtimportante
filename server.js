@@ -27,7 +27,7 @@ app.post('/notify', (req, res) => {
         },
         body: JSON.stringify({
             chat_id: chatId,
-            text: 'Alguém clicou no botão!',
+            text: 'Ela precisa de você!! urgente!!!!! bora porra',
         }),
     })
     .then(response => response.json())
