@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Botão de Notificação</title>
+</head>
+<style>
+      body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #6a0dad;
+            text-align: center;
+            margin-bottom: 20px;
+            width: 75%;
+        }
+
+        h2 {
+            color: #6a0dad;
+            text-align: center;
+            margin-top: 20px;
+            width: 75%;
+        }
+
+        #sendEmailBtn {
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        #sendEmailBtn img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 5px solid #6a0dad;
+            transition: transform 0.3s ease;
+        }
+
+        #sendEmailBtn img:hover {
+            transform: scale(1.1);
+        }
+
+        @media screen and (max-width: 800px) {
+            h1 {
+                font-size: 25px;
+                margin-bottom: 10px;
+            }
+
+            h2 {
+                font-size: 22px;
+                margin-top: 15px;
+            }
+
+            h2.fl{
+                  font-size: 26px;
+                  width: 90%;
+            }
+
+            #sendEmailBtn img {
+                width: 80px;
+                height: 80px;
+            }
+        }
+    </style>
+</style>
+
+<body>
+    <h1>Se você está aqui, é pq de alguma forma você precisa muito de mim, por isso, não hesite em apertar nesse botão:
+    </h1>
+    <div id="sendEmailBtn" onclick="sendNotification()"><img src="122ffc70971545.5bb5200aa8c48.gif" alt=""></div>
+    <h2>Sei que nesse momento você deve estar se sentindo perdida, mas eu prometo que tudo tem uma solução.
+
+    </h2>
+
+    <h2 class="fl">
+        Isso não tem validade!!! nossa promessa é pra sempre. 🐶🍁
+    </h2>
+    <script>
+        function sendNotification() {
+            fetch('/notify', {
+                method: 'POST'
+            })
+                .then(response => {
+                    if (response.ok) {
+                        alert('Pronto!!! vou responder o mais rápido possível, me espera, ta bom??');
+                    } else {
+                        alert('deu erro.... eu falhei......');
+                    }
+                })
+                .catch(error => {
+                    console.error('Erro:', error);
+                    alert('Erro ao enviar notificação!');
+                });
+        }
+    </script>
+
+</body>
+
+</html>
